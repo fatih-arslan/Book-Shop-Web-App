@@ -1,0 +1,12 @@
+C:\Users\Fatih\source\repos\BookShop\BookShop.Utility\bin\Debug\net7.0\BookShop.Utility.deps.json
+C:\Users\Fatih\source\repos\BookShop\BookShop.Utility\bin\Debug\net7.0\BookShop.Utility.dll
+C:\Users\Fatih\source\repos\BookShop\BookShop.Utility\bin\Debug\net7.0\BookShop.Utility.pdb
+C:\Users\Fatih\source\repos\BookShop\BookShop.Utility\obj\Debug\net7.0\BookShop.Utility.csproj.AssemblyReference.cache
+C:\Users\Fatih\source\repos\BookShop\BookShop.Utility\obj\Debug\net7.0\BookShop.Utility.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fatih\source\repos\BookShop\BookShop.Utility\obj\Debug\net7.0\BookShop.Utility.AssemblyInfoInputs.cache
+C:\Users\Fatih\source\repos\BookShop\BookShop.Utility\obj\Debug\net7.0\BookShop.Utility.AssemblyInfo.cs
+C:\Users\Fatih\source\repos\BookShop\BookShop.Utility\obj\Debug\net7.0\BookShop.Utility.csproj.CoreCompileInputs.cache
+C:\Users\Fatih\source\repos\BookShop\BookShop.Utility\obj\Debug\net7.0\BookShop.Utility.dll
+C:\Users\Fatih\source\repos\BookShop\BookShop.Utility\obj\Debug\net7.0\refint\BookShop.Utility.dll
+C:\Users\Fatih\source\repos\BookShop\BookShop.Utility\obj\Debug\net7.0\BookShop.Utility.pdb
+C:\Users\Fatih\source\repos\BookShop\BookShop.Utility\obj\Debug\net7.0\ref\BookShop.Utility.dll
