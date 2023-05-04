@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RjVZkLgCTsFg8359KvZ6vo/doaZmEGylh5m0op4YSdU=",
+  "Hash": "T9AmHB5cbv57cPkVVdErBm+6Q+XVXMm6e4JwARs0E9k=",
   "Source": "BookShop",
   "BasePath": "_content/BookShop",
   "Mode": "Default",
@@ -1205,6 +1205,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\product\\cd66782b-5693-49e6-b6e8-e58e01191341.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Fatih\\source\\repos\\BookShop\\BookShop\\wwwroot\\js\\company.js",
+      "SourceId": "BookShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Fatih\\source\\repos\\BookShop\\BookShop\\wwwroot\\",
+      "BasePath": "_content/BookShop",
+      "RelativePath": "js/company.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\company.js"
     },
     {
       "Identity": "C:\\Users\\Fatih\\source\\repos\\BookShop\\BookShop\\wwwroot\\js\\product.js",

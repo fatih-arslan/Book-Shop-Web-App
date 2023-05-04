@@ -60,7 +60,7 @@
 						</div>
 						<div class="form-floating py-2 col-12">
 							<select asp-for="Product.CategoryId" asp-items="@Model.CategoryList" class="form-select border-0 shadow">
-								<option disabled selected>--Select Category</option>
+								<option disabled selected>--Select Category--</option>
 							</select>
 							<label asp-for="Product.Price100" class="ms-2"></label>
 							<span asp-validation-for="Product.Price100" class="text-danger"></span>
@@ -103,7 +103,7 @@
 	<script>
 		tinymce.init({
 			selector: 'textarea',
-			plugins: 'anchor autolink charmap codesample emoticons lists table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+			plugins: 'anchor autolink charmap codesample emoticons lists table visualblocks wordcount',
 			toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent ',
 			tinycomments_mode: 'embedded',
 			tinycomments_author: 'Author name',

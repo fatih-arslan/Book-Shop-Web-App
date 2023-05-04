@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\images\\product\\cd66782b-5693-49e6-b6e8-e58e01191341.jpg"
     },
     {
+      "Id": "C:\\Users\\Fatih\\source\\repos\\BookShop\\BookShop\\wwwroot\\js\\company.js",
+      "PackagePath": "staticwebassets\\js\\company.js"
+    },
+    {
       "Id": "C:\\Users\\Fatih\\source\\repos\\BookShop\\BookShop\\wwwroot\\js\\product.js",
       "PackagePath": "staticwebassets\\js\\product.js"
     },
