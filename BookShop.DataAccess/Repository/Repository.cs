@@ -24,28 +24,41 @@ namespace BookShop.DataAccess.Repository
 			dbSet.Add(entity);
 		}
 
-		public T? Get(Expression<Func<T, bool>> filter, string? includeProperties = null)
+		public T? Get(Expression<Func<T, bool>> filter, string? includeProperties = null, bool tracked = false)
 		{
-			IQueryable<T> query = dbSet;
-			query = query.Where(filter);
-			if (!String.IsNullOrEmpty(includeProperties))
+			IQueryable<T> query;
+            if (tracked)
 			{
-				foreach (var property in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-				{
-					query = query.Include(property);
-				}
-			}
-			return query.FirstOrDefault();
-		}
+				query = dbSet;
+                
+            }
+			else
+			{
+                query = dbSet.AsNoTracking();                
+            }
+            query = query.Where(filter);
+            if (!String.IsNullOrEmpty(includeProperties))
+            {
+                foreach (var property in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(property);
+                }
+            }
+            return query.FirstOrDefault();
+        }
 
 		
-		public IEnumerable<T> GetAll(string? includeProperties = null)
+		public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
 		{
 			// When getting items we are including the properties that are from other tables with the foreign keys 
 			// Like getting the category name for a product with the CategoryId key
 			// The includeProperties argument must be given as comma seperated values like "Category,CoverType"
 			IQueryable<T> query = dbSet;
-			if(!String.IsNullOrEmpty(includeProperties))
+			if(filter != null)
+			{
+                query = query.Where(filter);
+            }
+            if (!String.IsNullOrEmpty(includeProperties))
 			{
 				foreach(var property in includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries)) 
 				{
