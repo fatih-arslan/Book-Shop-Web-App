@@ -290,3 +290,4 @@ C:\Users\Fatih\source\repos\BookShop\BookShop\bin\Debug\net7.0\Microsoft.Extensi
 C:\Users\Fatih\source\repos\BookShop\BookShop\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
 C:\Users\Fatih\source\repos\BookShop\BookShop\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.UI.dll
 C:\Users\Fatih\source\repos\BookShop\BookShop\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\Fatih\source\repos\BookShop\BookShop\bin\Debug\net7.0\Stripe.net.dll

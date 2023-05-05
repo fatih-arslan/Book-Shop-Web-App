@@ -16,6 +16,6 @@ namespace BookShop.DataAccess.Repository
         public ApplicationUserRepository(ApplicationDbContext context) : base(context)
         {
 			_context = context;
-        }
+        }		
 	}
 }

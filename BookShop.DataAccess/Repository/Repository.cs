@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using BookShop.DataAccess.Repository.IRepository;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace BookShop.DataAccess.Repository
 {
@@ -35,16 +36,18 @@ namespace BookShop.DataAccess.Repository
 			else
 			{
                 query = dbSet.AsNoTracking();                
-            }
-            query = query.Where(filter);
-            if (!String.IsNullOrEmpty(includeProperties))
+            }			
+
+			query = query.Where(filter);
+
+			if (!String.IsNullOrEmpty(includeProperties))
             {
                 foreach (var property in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
                 {
                     query = query.Include(property);
                 }
             }
-            return query.FirstOrDefault();
+			return query.FirstOrDefault();
         }
 
 		

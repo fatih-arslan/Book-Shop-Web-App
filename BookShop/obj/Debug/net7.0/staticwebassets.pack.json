@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Fatih\\source\\repos\\BookShop\\BookShop\\wwwroot\\images\\book.png",
+      "PackagePath": "staticwebassets\\images\\book.png"
+    },
+    {
+      "Id": "C:\\Users\\Fatih\\source\\repos\\BookShop\\BookShop\\wwwroot\\images\\order_success.png",
+      "PackagePath": "staticwebassets\\images\\order_success.png"
+    },
+    {
       "Id": "C:\\Users\\Fatih\\source\\repos\\BookShop\\BookShop\\wwwroot\\images\\product\\1ba89198-aab1-4720-be0d-2815293bd124.jpg",
       "PackagePath": "staticwebassets\\images\\product\\1ba89198-aab1-4720-be0d-2815293bd124.jpg"
     },

@@ -15,7 +15,9 @@ namespace BookShop.DataAccess.Repository
         public IProductRepository Product { get; private set; }
         public ICompanyRepository Company { get; private set; }
         public IShoppingCartRepository ShoppingCart { get; set; }
-        public IApplicationUserRepository ApplicationUser => throw new NotImplementedException();
+        public IApplicationUserRepository ApplicationUser { get; set; }
+        public IOrderHeaderRepository OrderHeader { get; set; }
+        public IOrderDetailRepository OrderDetail { get; set; }
 
         public UnitOfWork(ApplicationDbContext context)
 		{
@@ -24,6 +26,9 @@ namespace BookShop.DataAccess.Repository
 			Product = new ProductRepository(_context);
 			Company = new CompanyRepository(_context);
 			ShoppingCart = new ShoppingCartRepository(_context);
+			ApplicationUser = new ApplicationUserRepository(_context);
+			OrderDetail = new OrderDetailRepository(_context);
+			OrderHeader = new OrderHeaderRepository(_context);
 		}
 
 		public void Save()
