@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using BookShop.Utility;
 using Stripe;
+using BookShop.DataAccess.DbInitializer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +38,7 @@ builder.Services.AddSession(options =>
 	options.Cookie.IsEssential = true;
 });
 
+builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 builder.Services.AddRazorPages(); // for identity
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>(); 
 builder.Services.AddScoped<IEmailSender, EmailSender>();
@@ -63,3 +65,12 @@ app.MapControllerRoute(
 	pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+void SeedDataBase()
+{
+	using(var scope = app.Services.CreateScope())
+	{
+		var dbInitializer = scope.ServiceProvider.GetRequiredService<DbInitializer>();
+		dbInitializer.Initialize();
+	}
+}

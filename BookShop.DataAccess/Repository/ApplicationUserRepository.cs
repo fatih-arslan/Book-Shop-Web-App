@@ -16,6 +16,10 @@ namespace BookShop.DataAccess.Repository
         public ApplicationUserRepository(ApplicationDbContext context) : base(context)
         {
 			_context = context;
-        }		
-	}
+        }
+        public void Update(ApplicationUser applicationUser)
+        {
+            _context.ApplicationUsers.Update(applicationUser);
+        }
+    }
 }
