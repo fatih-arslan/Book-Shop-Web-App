@@ -1,7 +1,9 @@
 ﻿var dataTable;
 
-$(document).ready(function () {
+$(document).ready(function () {    
     loadDataTable();
+    var searchInput = $('#tblData_filter input[type="search"]');
+    searchInput.css('margin-bottom', '20px');
 });
 
 function loadDataTable() {

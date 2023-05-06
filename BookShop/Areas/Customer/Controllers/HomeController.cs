@@ -1,6 +1,8 @@
 ﻿using BookShop.DataAccess.Repository.IRepository;
 using BookShop.Models;
+using BookShop.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Security.Claims;
@@ -21,6 +23,14 @@ namespace BookShop.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            if (claim != null)
+            {
+                var userId = claim.Value;
+                int itemCount = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == userId).Count();
+                HttpContext.Session.SetInt32(StaticDetails.SessionCart, itemCount);
+            }            
             IEnumerable<Product> products = _unitOfWork.Product.GetAll(includeProperties: "Category");
             return View(products);
         }
@@ -50,12 +60,15 @@ namespace BookShop.Areas.Customer.Controllers
             {
                 cartFromDatabase.Count += shoppingCart.Count;
                 _unitOfWork.ShoppingCart.Update(cartFromDatabase);
+                _unitOfWork.Save();
             }
             else // add cart record
             {
                 _unitOfWork.ShoppingCart.Add(shoppingCart);
+                _unitOfWork.Save();
+                int itemCount = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == userId).Count();
+                HttpContext.Session.SetInt32(StaticDetails.SessionCart, itemCount);   
             }
-            _unitOfWork.Save();
             return RedirectToAction(nameof(Index));
         }
 

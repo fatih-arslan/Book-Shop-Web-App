@@ -116,6 +116,7 @@ namespace BookShop.Areas.Customer.Controllers
 
 			if (applicationUser.CompanyId.GetValueOrDefault() == 0)
 			{
+                // stripe logic
                 var domain = "https://localhost:44328/";
                 var options = new SessionCreateOptions
                 {
@@ -165,12 +166,13 @@ namespace BookShop.Areas.Customer.Controllers
                     _unitOfWork.OrderHeader.UpdateStatus(id, StaticDetails.StatusApproved, StaticDetails.PaymentStatusApproved);
                     _unitOfWork.Save();
 				}
+                HttpContext.Session.Clear();
 			}
             List<ShoppingCart> shoppingCarts = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == orderHeader.ApplicationUserId).ToList();
             _unitOfWork.ShoppingCart.RemoveRange(shoppingCarts);
             _unitOfWork.Save();
             return View(id);
-        }
+        }		
 
 		public IActionResult Plus(int cartId) 
         {
@@ -188,6 +190,8 @@ namespace BookShop.Areas.Customer.Controllers
             {
                 // remove 
                 _unitOfWork.ShoppingCart.Remove(cartFromDb);
+                int itemCount = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == cartFromDb.ApplicationUserId).Count() - 1;
+                HttpContext.Session.SetInt32(StaticDetails.SessionCart, itemCount);
             }
             else
             {
@@ -200,8 +204,10 @@ namespace BookShop.Areas.Customer.Controllers
 
         public IActionResult Remove(int cartId)
         {
-            var cartFromDb = _unitOfWork.ShoppingCart.Get(u => u.Id == cartId);            
+            var cartFromDb = _unitOfWork.ShoppingCart.Get(u => u.Id == cartId, tracked: true);            
             _unitOfWork.ShoppingCart.Remove(cartFromDb);                        
+            int itemCount = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == cartFromDb.ApplicationUserId).Count() - 1;
+            HttpContext.Session.SetInt32(StaticDetails.SessionCart, itemCount);
             _unitOfWork.Save();
             return RedirectToAction(nameof(Index));
         }

@@ -25,5 +25,7 @@ namespace BookShop.Utility
 		public const string PaymentStatusDelayedPayment = "ApprovedForDelayedPAyment";
 		public const string PaymentStatus = "Rejected";
 
-	}
+		public const string SessionCart = "SessionShoppingCart";
+
+    }
 }
